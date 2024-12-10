@@ -26,7 +26,7 @@ Setup Instructions:
       3. Click GO to import the database schema and data
 
 4. Configure the Project
-   - Open the config.php(or similar configuration file) in the project directory.
+   - Open the db_connect.php(or similar configuration file) in the project directory.
    - Update the database credentials
   
    $servername = "localhost";
