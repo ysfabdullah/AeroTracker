@@ -37,12 +37,9 @@ Setup Instructions:
 
    It should take you straight to the webpage.
 
-6. Run the project
-   -Open the XAMPP Control Panel
-   -Start the Apache module(for the webserver) and the MySQL module(for the database)
  
 
-7. Test the Application!
+6. Test the Application!
 
    - Register a user, search for flights, and interact with the features to ensure everything works as expected.
    
