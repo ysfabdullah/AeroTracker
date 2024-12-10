@@ -28,12 +28,26 @@ Setup Instructions:
 
 4. Place the Project in the XAMPP Directory
    -Copy the project folder to the htdocs directory in your XAMPP installation.
+   1. Locate your XAMPP installation directory:
+      Default path on Windows: C:\xampp\htdocs
+      Default path on macOS: /Applications/XAMPP/htdocs
+
+5. Open a New browser and search this:
+   HTTP://localhost/aerotracker/
+
+   It should take you straight to the webpage.
 
 6. Run the project
-   -Open a browser and navigate to:
-   HTTP://localhost/<project-folder-name>
+   -Open the XAMPP Control Panel
+   -Start the Apache module(for the webserver) and the MySQL module(for the database)
+   -Access the project
+      -http://localhost/aerotracker/
 
-   replace <project-folder-name> with the name of your project folder.
+7. Test the Application!
+
+   - Register a user, search for flights, and interact with the features to ensure everything works as expected.
+   
+ 
 
 
 
