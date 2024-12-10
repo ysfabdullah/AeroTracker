@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroTracker - FlexiTickets</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.png">
+</head>
+<body>
+    <header>
+        <h1>FlexiTickets</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+            <a href="search.html">Search Flights</a>
+            <a href="flexitickets.html">My Tickets</a>
+            <a href="logout.php">Logout</a> 
+        </nav>
+    </header>
+    <main>
+        <h2>Your Tickets</h2>
+        <p>Here are the tickets you've booked. You can choose to swap or sell them.</p>
+
+        <!-- Ticket Table -->
+        <table class="ticket-table">
+            <thead>
+                <tr>
+                    <th>Flight ID</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Trip-Type</th>
+                    <th>Date</th>
+                    <th>Return</th>
+                    <th># of Pass.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- PHP to dynamically fetch and display tickets from the database -->
+                <?php
+                // Assuming you have already established a database connection
+                session_start(); // Start the session to retrieve user data
+
+                // Get the user ID from the session
+                $user_id = $_SESSION['user_id']; // Make sure user is logged in
+
+                // SQL query to fetch ticket details
+                $query = "SELECT tickets.ticket_id, flights.departure_city, flights.arrival_city, flights.departure_date, tickets.seat
+                          FROM tickets
+                          JOIN flights ON tickets.flight_id = flights.flight_id
+                          WHERE tickets.user_id = ?";
+                
+                // Prepare and execute the query
+                if ($stmt = $mysqli->prepare($query)) {
+                    $stmt->bind_param("i", $user_id); // Bind the user ID to the query
+                    $stmt->execute();
+                    $stmt->bind_result($ticket_id, $departure_city, $arrival_city, $departure_date, $seat);
+                    
+                    // Loop through each ticket and display it
+                    while ($stmt->fetch()) {
+                        echo "<tr>
+                                <td>{$ticket_id}</td>
+                                <td>{$departure_city} → {$arrival_city}</td>
+                                <td>{$departure_date}</td>
+                                <td>{$seat}</td>
+                                <td>
+                                    <button onclick='swapTicket({$ticket_id})'>Swap</button>
+                                    <button onclick='sellTicket({$ticket_id})'>Sell</button>
+                                </td>
+                              </tr>";
+                    }
+                    $stmt->close();
+                } else {
+                    echo "<tr><td colspan='5'>No tickets found</td></tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>&copy; 2024 AeroTracker CPSC 471.</p>
+    </footer>
+
+    <script>
+        // Placeholder for swap functionality
+        function swapTicket(ticketId) {
+            alert("You have selected to swap Ticket ID: " + ticketId);
+            // Implement swap logic here
+        }
+
+        // Placeholder for sell functionality
+        function sellTicket(ticketId) {
+            alert("You have selected to sell Ticket ID: " + ticketId);
+            // Implement sell logic here
+        }
+    </script>
+</body>
+</html>
