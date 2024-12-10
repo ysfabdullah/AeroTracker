@@ -1,4 +1,4 @@
-# AeroTracker
+# AeroTracker ✈️
 
 Project Overview:
 
