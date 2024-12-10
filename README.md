@@ -22,20 +22,11 @@ Setup Instructions:
    -Create a new database (e.g., aerotracker)
    -Import the provided SQL file:
       1. Go to the Import tab in phpMyAdmin
-      2. Select the SQL file from your project repository(database/aerotracker.sql)
+      2. Select the SQL file from your project repository(aerotracker.sql)
       3. Click GO to import the database schema and data
 
-4. Configure the Project
-   - Open the db_connect.php(or similar configuration file) in the project directory.
-   - Update the database credentials
-  
-   $servername = "localhost";
-  $username = "root"; // Default XAMPP user
-  $password = "";     // Default XAMPP password is empty
-  $dbname = "aerotracker";
 
-
-5. Place the Project in the XAMPP Directory
+4. Place the Project in the XAMPP Directory
    -Copy the project folder to the htdocs directory in your XAMPP installation.
 
 6. Run the project
