@@ -40,8 +40,7 @@ Setup Instructions:
 6. Run the project
    -Open the XAMPP Control Panel
    -Start the Apache module(for the webserver) and the MySQL module(for the database)
-   -Access the project
-      -http://localhost/aerotracker/
+ 
 
 7. Test the Application!
 
